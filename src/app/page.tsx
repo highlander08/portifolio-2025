@@ -1,86 +1,165 @@
-"use client"
-import { Cloud, Code, Database, ExternalLink, Github, Linkedin, Mail, Menu, Server, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+"use client";
+import {
+  Cloud,
+  Code,
+  Database,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Mail,
+  Menu,
+  Server,
+  X,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState("home");
 
   // Dados dos projetos (você pode personalizar com seus projetos reais)
   const projects = [
     {
       id: 1,
-      name: "Sistema de Microserviços E-commerce",
-      description: "Arquitetura de microserviços completa para e-commerce com processamento assíncrono de pedidos, integração com gateways de pagamento e sistema de notificações em tempo real.",
-      technologies: ["NestJS", "TypeScript", "PostgreSQL", "Redis", "RabbitMQ", "Docker", "Kubernetes"],
+      name: "Site de Apresentação de Contabilidade",
+      description:
+        "Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.",
+      technologies: [
+        "Nextjs",
+        "Tailwind CSS",
+        "Mobile First",
+        "React Hooks",
+        "SEO Techniques",
+        "Performance Optimization",
+        "React DevTools",
+        "Vercel",
+        "TypeScript",
+        "HTML5",
+        "CSS3",
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Accessibility",
+        "Image Optimization",
+        "ESLint",
+        "Prettier",
+      ],
       githubUrl: "https://github.com/usuario/ecommerce-microservices",
       demoUrl: "https://demo-ecommerce.com",
-      gifUrl: "/api/placeholder/600/300" // Substitua pela URL do seu GIF
+      gifUrl: "/api/placeholder/600/300", // Substitua pela URL do seu GIF
     },
     {
       id: 2,
       name: "API GraphQL com IA Integration",
-      description: "API GraphQL robusta com integração OpenAI/GPT-4 para análise de dados, autenticação JWT/OAuth 2.0 e sistema de cache distribuído com Redis.",
-      technologies: ["Node.js", "GraphQL", "TypeORM", "PostgreSQL", "OpenAI API", "JWT", "Redis"],
+      description:
+        "API GraphQL robusta com integração OpenAI/GPT-4 para análise de dados, autenticação JWT/OAuth 2.0 e sistema de cache distribuído com Redis.",
+      technologies: [
+        "Node.js",
+        "GraphQL",
+        "TypeORM",
+        "PostgreSQL",
+        "OpenAI API",
+        "JWT",
+        "Redis",
+      ],
       githubUrl: "https://github.com/usuario/graphql-ai-api",
       demoUrl: "https://api-demo.com",
-      gifUrl: "/api/placeholder/600/300"
+      gifUrl: "/api/placeholder/600/300",
     },
     {
       id: 3,
       name: "Sistema Embarcado IoT",
-      description: "Sistema de monitoramento IoT em tempo real com microcontroladores, comunicação via protocolo MQTT e dashboard web para visualização de dados de sensores.",
-      technologies: ["C", "ESP32", "MQTT", "Node.js", "MongoDB", "React", "AWS IoT"],
+      description:
+        "Sistema de monitoramento IoT em tempo real com microcontroladores, comunicação via protocolo MQTT e dashboard web para visualização de dados de sensores.",
+      technologies: [
+        "C",
+        "ESP32",
+        "MQTT",
+        "Node.js",
+        "MongoDB",
+        "React",
+        "AWS IoT",
+      ],
       githubUrl: "https://github.com/usuario/iot-monitoring",
       demoUrl: "https://iot-dashboard.com",
-      gifUrl: "/api/placeholder/600/300"
+      gifUrl: "/api/placeholder/600/300",
     },
     {
       id: 4,
       name: "Pipeline CI/CD com Monitoramento",
-      description: "Implementação completa de pipeline CI/CD com Docker, Kubernetes, monitoramento com Prometheus/Grafana e deployment automatizado em múltiplas clouds.",
-      technologies: ["Docker", "Kubernetes", "Prometheus", "Grafana", "Jenkins", "AWS", "Terraform"],
+      description:
+        "Implementação completa de pipeline CI/CD com Docker, Kubernetes, monitoramento com Prometheus/Grafana e deployment automatizado em múltiplas clouds.",
+      technologies: [
+        "Docker",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana",
+        "Jenkins",
+        "AWS",
+        "Terraform",
+      ],
       githubUrl: "https://github.com/usuario/cicd-pipeline",
       demoUrl: "https://monitoring-dashboard.com",
-      gifUrl: "/api/placeholder/600/300"
-    }
+      gifUrl: "/api/placeholder/600/300",
+    },
   ];
 
   const skills = [
-    { category: "Backend", items: ["NestJS", "Node.js", "TypeScript", "Clean Architecture", "SOLID Principles"] },
-    { category: "Database", items: ["PostgreSQL", "TypeORM", "Redis", "MongoDB"] },
+    {
+      category: "Backend",
+      items: [
+        "NestJS",
+        "Node.js",
+        "TypeScript",
+        "Clean Architecture",
+        "SOLID Principles",
+      ],
+    },
+    {
+      category: "Database",
+      items: ["PostgreSQL", "TypeORM", "Redis", "MongoDB"],
+    },
     { category: "Messaging", items: ["Kafka", "RabbitMQ", "MQTT"] },
-    { category: "APIs", items: ["REST", "GraphQL", "OpenAI/GPT-4 Integration"] },
+    {
+      category: "APIs",
+      items: ["REST", "GraphQL", "OpenAI/GPT-4 Integration"],
+    },
     { category: "Authentication", items: ["JWT", "OAuth 2.0"] },
-    { category: "DevOps", items: ["Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"] },
+    {
+      category: "DevOps",
+      items: ["Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
+    },
     { category: "Cloud", items: ["AWS", "Azure", "GCP"] },
-    { category: "Embedded", items: ["C", "Microcontroladores", "Sistemas Embarcados"] }
+    { category: "Frontend", items: ["React", "Hooks", "Técnica de SEO"] },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ["home", "about", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
-      sections.forEach(section => {
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
           }
         }
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -92,20 +171,22 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="text-xl font-bold text-slate-900">Portfolio</div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {[
-                { id: 'home', label: 'Início' },
-                { id: 'about', label: 'Sobre' },
-                { id: 'projects', label: 'Projetos' },
-                { id: 'contact', label: 'Contato' }
-              ].map(item => (
+                { id: "home", label: "Início" },
+                { id: "about", label: "Sobre" },
+                { id: "projects", label: "Projetos" },
+                { id: "contact", label: "Contato" },
+              ].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                    activeSection === item.id ? 'text-blue-600' : 'text-slate-600'
+                    activeSection === item.id
+                      ? "text-blue-600"
+                      : "text-slate-600"
                   }`}
                 >
                   {item.label}
@@ -126,11 +207,11 @@ const Portfolio = () => {
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-slate-200">
               {[
-                { id: 'home', label: 'Início' },
-                { id: 'about', label: 'Sobre' },
-                { id: 'projects', label: 'Projetos' },
-                { id: 'contact', label: 'Contato' }
-              ].map(item => (
+                { id: "home", label: "Início" },
+                { id: "about", label: "Sobre" },
+                { id: "projects", label: "Projetos" },
+                { id: "contact", label: "Contato" },
+              ].map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
@@ -156,20 +237,36 @@ const Portfolio = () => {
                 Software Developer
               </h1>
               <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
-                Especialista em arquiteturas escaláveis, microserviços e sistemas de alta performance
+                Especialista em arquiteturas escaláveis, microserviços e
+                sistemas de alta performance
               </p>
               <div className="flex flex-wrap justify-center gap-3 mb-8">
-                {["NestJS", "TypeScript", "Node.js", "Microservices", "Clean Architecture"].map(skill => (
-                  <span key={skill} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                {[
+                  "NestJS",
+                  "TypeScript",
+                  "Node.js",
+                  "Microservices",
+                  "Clean Architecture",
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                  >
                     {skill}
                   </span>
                 ))}
               </div>
               <div className="flex justify-center space-x-4">
-                <a href="#contact" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                <a
+                  href="#contact"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                >
                   Entre em Contato
                 </a>
-                <a href="#projects" className="border border-slate-300 text-slate-700 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+                <a
+                  href="#projects"
+                  className="border border-slate-300 text-slate-700 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors"
+                >
                   Ver Projetos
                 </a>
               </div>
@@ -182,51 +279,82 @@ const Portfolio = () => {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Sobre Mim</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Sobre Mim
+            </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Desenvolvedor de sofgtware apaixonado por criar soluções robustas e escaláveis. 
-              Especializado em arquiteturas de microserviços, desenvolvimento de APIs de alta performance 
-              e implementação de práticas DevOps modernas.
+              Desenvolvedor de sofgtware apaixonado por criar soluções robustas
+              e escaláveis. Especializado em arquiteturas de microserviços,
+              desenvolvimento de APIs de alta performance e implementação de
+              práticas DevOps modernas.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-semibold text-slate-900 mb-6">Experiência & Foco</h3>
+              <h3 className="text-2xl font-semibold text-slate-900 mb-6">
+                Experiência & Foco
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <Server className="text-blue-600 mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-slate-800">Arquiteturas Escaláveis</h4>
-                    <p className="text-slate-600">Desenvolvimento de sistemas distribuídos com microserviços, implementando padrões como Clean Architecture e princípios SOLID.</p>
+                    <h4 className="font-semibold text-slate-800">
+                      Arquiteturas Escaláveis
+                    </h4>
+                    <p className="text-slate-600">
+                      Desenvolvimento de sistemas distribuídos com
+                      microserviços, implementando padrões como Clean
+                      Architecture e princípios SOLID.
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Database className="text-blue-600 mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-slate-800">Banco de Dados & Performance</h4>
-                    <p className="text-slate-600">Otimização de consultas SQL, implementação de cache distribuído com Redis e modelagem de dados eficiente.</p>
+                    <h4 className="font-semibold text-slate-800">
+                      Banco de Dados & Performance
+                    </h4>
+                    <p className="text-slate-600">
+                      Otimização de consultas SQL, implementação de cache
+                      distribuído com Redis e modelagem de dados eficiente.
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Cloud className="text-blue-600 mt-1" size={20} />
                   <div>
-                    <h4 className="font-semibold text-slate-800">DevOps & Cloud</h4>
-                    <p className="text-slate-600">Containerização com Docker, orquestração com Kubernetes e implementação de pipelines CI/CD em múltiplas clouds.</p>
+                    <h4 className="font-semibold text-slate-800">
+                      DevOps & Cloud
+                    </h4>
+                    <p className="text-slate-600">
+                      Containerização com Docker, orquestração com Kubernetes e
+                      implementação de pipelines CI/CD em múltiplas clouds.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold text-slate-900 mb-6">Tecnologias</h3>
+              <h3 className="text-2xl font-semibold text-slate-900 mb-6">
+                Tecnologias
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
-                {skills.map(skillGroup => (
-                  <div key={skillGroup.category} className="bg-slate-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-slate-800 mb-2">{skillGroup.category}</h4>
+                {skills.map((skillGroup) => (
+                  <div
+                    key={skillGroup.category}
+                    className="bg-slate-50 p-4 rounded-lg"
+                  >
+                    <h4 className="font-semibold text-slate-800 mb-2">
+                      {skillGroup.category}
+                    </h4>
                     <div className="flex flex-wrap gap-1">
-                      {skillGroup.items.map(skill => (
-                        <span key={skill} className="text-xs bg-white px-2 py-1 rounded text-slate-600">
+                      {skillGroup.items.map((skill) => (
+                        <span
+                          key={skill}
+                          className="text-xs bg-white px-2 py-1 rounded text-slate-600"
+                        >
                           {skill}
                         </span>
                       ))}
@@ -243,33 +371,48 @@ const Portfolio = () => {
       <section id="projects" className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Projetos</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Projetos
+            </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Uma seleção dos meus principais projetos, demonstrando expertise em desenvolvimento de software, 
-              arquiteturas escaláveis e integração de tecnologias modernas.
+              Uma seleção dos meus principais projetos, demonstrando expertise
+              em desenvolvimento de software, arquiteturas escaláveis e
+              integração de tecnologias modernas.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map(project => (
-              <div key={project.id} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
+              >
                 <div className="aspect-video bg-slate-100 relative overflow-hidden">
-                  <img 
-                    src={project.gifUrl} 
+                  <img
+                    src={project.gifUrl}
                     alt={`${project.name} demo`}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/10"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{project.name}</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
-                  
+                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                    {project.name}
+                  </h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+
                   <div className="mb-4">
-                    <h4 className="text-sm font-medium text-slate-700 mb-2">Tecnologias:</h4>
+                    <h4 className="text-sm font-medium text-slate-700 mb-2">
+                      Tecnologias:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.map(tech => (
-                        <span key={tech} className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -277,7 +420,7 @@ const Portfolio = () => {
                   </div>
 
                   <div className="flex space-x-3">
-                    <a 
+                    <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -286,7 +429,7 @@ const Portfolio = () => {
                       <Github size={16} />
                       <span className="text-sm">Código</span>
                     </a>
-                    <a 
+                    <a
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -307,19 +450,23 @@ const Portfolio = () => {
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Vamos Conversar</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Vamos Conversar
+            </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Interessado em colaborar ou discutir oportunidades? 
-              Estou sempre aberto a novos desafios e projetos interessantes.
+              Interessado em colaborar ou discutir oportunidades? Estou sempre
+              aberto a novos desafios e projetos interessantes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">Entre em Contato</h3>
-              
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                Entre em Contato
+              </h3>
+
               <div className="space-y-4">
-                <a 
+                <a
                   href="santosray62@gmail.com"
                   className="flex items-center space-x-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors"
                 >
@@ -329,8 +476,8 @@ const Portfolio = () => {
                     <div className="text-slate-600">santosray62@gmail.com</div>
                   </div>
                 </a>
-                
-                <a 
+
+                <a
                   href="https://www.linkedin.com/in/highlandersantos/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -339,11 +486,13 @@ const Portfolio = () => {
                   <Linkedin className="text-blue-600" size={20} />
                   <div>
                     <div className="font-medium text-slate-900">LinkedIn</div>
-                    <div className="text-slate-600">linkedin.com/in/highlandersantos</div>
+                    <div className="text-slate-600">
+                      linkedin.com/in/highlandersantos
+                    </div>
                   </div>
                 </a>
-                
-                <a 
+
+                <a
                   href="https://github.com/highlander08"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -352,41 +501,61 @@ const Portfolio = () => {
                   <Github className="text-blue-600" size={20} />
                   <div>
                     <div className="font-medium text-slate-900">GitHub</div>
-                    <div className="text-slate-600">github.com/highlander08</div>
+                    <div className="text-slate-600">
+                      github.com/highlander08
+                    </div>
                   </div>
                 </a>
               </div>
             </div>
 
             <div className="bg-slate-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">Áreas de Interesse</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                Áreas de Interesse
+              </h3>
               <div className="space-y-3">
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <div>
-                    <div className="font-medium text-slate-800">Arquitetura de Software</div>
-                    <div className="text-sm text-slate-600">Microserviços, Clean Architecture, Domain-Driven Design</div>
+                    <div className="font-medium text-slate-800">
+                      Arquitetura de Software
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Microserviços, Clean Architecture, Domain-Driven Design
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <div>
-                    <div className="font-medium text-slate-800">Performance & Escalabilidade</div>
-                    <div className="text-sm text-slate-600">Otimização de sistemas, cache distribuído, load balancing</div>
+                    <div className="font-medium text-slate-800">
+                      Performance & Escalabilidade
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Otimização de sistemas, cache distribuído, load balancing
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <div>
-                    <div className="font-medium text-slate-800">DevOps & Cloud</div>
-                    <div className="text-sm text-slate-600">Containerização, orquestração, CI/CD, monitoramento</div>
+                    <div className="font-medium text-slate-800">
+                      DevOps & Cloud
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      Containerização, orquestração, CI/CD, monitoramento
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                   <div>
-                    <div className="font-medium text-slate-800">Sistemas Embarcados</div>
-                    <div className="text-sm text-slate-600">IoT, microcontroladores, sistemas em tempo real</div>
+                    <div className="font-medium text-slate-800">
+                      Sistemas Embarcados
+                    </div>
+                    <div className="text-sm text-slate-600">
+                      IoT, microcontroladores, sistemas em tempo real
+                    </div>
                   </div>
                 </div>
               </div>
@@ -400,18 +569,28 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex justify-center space-x-6 mb-4">
-              <a href="https://github.com/highlander08" className="hover:text-blue-400 transition-colors">
+              <a
+                href="https://github.com/highlander08"
+                className="hover:text-blue-400 transition-colors"
+              >
                 <Github size={20} />
               </a>
-              <a href="https://linkedin.com/in/highlandersantos" className="hover:text-blue-400 transition-colors">
+              <a
+                href="https://linkedin.com/in/highlandersantos"
+                className="hover:text-blue-400 transition-colors"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:santosray62@gmail.com" className="hover:text-blue-400 transition-colors">
+              <a
+                href="mailto:santosray62@gmail.com"
+                className="hover:text-blue-400 transition-colors"
+              >
                 <Mail size={20} />
               </a>
             </div>
             <p className="text-slate-400 text-sm">
-              © 2025 Portfolio - software Developer. Construído com Next.js e Tailwind CSS.
+              © 2025 Portfolio - software Developer. Construído com Next.js e
+              Tailwind CSS.
             </p>
           </div>
         </div>
