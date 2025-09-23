@@ -21,7 +21,7 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      name: "Site de Apresentação de Contabilidade",
+      name: "[Site]: Empresa de Contabilidade",
       description:
         "Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.",
       technologies: [
@@ -44,63 +44,9 @@ const Portfolio = () => {
         "ESLint",
         "Prettier",
       ],
-      githubUrl: "https://github.com/usuario/ecommerce-microservices",
-      demoUrl: "https://demo-ecommerce.com",
-      gifUrl: "/api/placeholder/600/300", // Substitua pela URL do seu GIF
-    },
-    {
-      id: 2,
-      name: "API GraphQL com IA Integration",
-      description:
-        "API GraphQL robusta com integração OpenAI/GPT-4 para análise de dados, autenticação JWT/OAuth 2.0 e sistema de cache distribuído com Redis.",
-      technologies: [
-        "Node.js",
-        "GraphQL",
-        "TypeORM",
-        "PostgreSQL",
-        "OpenAI API",
-        "JWT",
-        "Redis",
-      ],
-      githubUrl: "https://github.com/usuario/graphql-ai-api",
-      demoUrl: "https://api-demo.com",
-      gifUrl: "/api/placeholder/600/300",
-    },
-    {
-      id: 3,
-      name: "Sistema Embarcado IoT",
-      description:
-        "Sistema de monitoramento IoT em tempo real com microcontroladores, comunicação via protocolo MQTT e dashboard web para visualização de dados de sensores.",
-      technologies: [
-        "C",
-        "ESP32",
-        "MQTT",
-        "Node.js",
-        "MongoDB",
-        "React",
-        "AWS IoT",
-      ],
-      githubUrl: "https://github.com/usuario/iot-monitoring",
-      demoUrl: "https://iot-dashboard.com",
-      gifUrl: "/api/placeholder/600/300",
-    },
-    {
-      id: 4,
-      name: "Pipeline CI/CD com Monitoramento",
-      description:
-        "Implementação completa de pipeline CI/CD com Docker, Kubernetes, monitoramento com Prometheus/Grafana e deployment automatizado em múltiplas clouds.",
-      technologies: [
-        "Docker",
-        "Kubernetes",
-        "Prometheus",
-        "Grafana",
-        "Jenkins",
-        "AWS",
-        "Terraform",
-      ],
-      githubUrl: "https://github.com/usuario/cicd-pipeline",
-      demoUrl: "https://monitoring-dashboard.com",
-      gifUrl: "/api/placeholder/600/300",
+      githubUrl: "https://github.com/highlander08/wn-contabilidade",
+      demoUrl: "https://wn-contabilidade.vercel.app/",
+      gifUrl: "/gifwn.gif", // Substitua pela URL do seu GIF
     },
   ];
 
@@ -382,66 +328,74 @@ const Portfolio = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
-              >
-                <div className="aspect-video bg-slate-100 relative overflow-hidden">
-                  <img
-                    src={project.gifUrl}
-                    alt={`${project.name} demo`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                    {project.name}
-                  </h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+            {projects.map((project) => {
+              return (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div
+                    key={project.id}
+                    className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                  >
+                    <div className="aspect-video bg-slate-100 relative overflow-hidden">
+                      <img
+                        src={project.gifUrl}
+                        alt={`${project.name} demo`}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/10"></div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                        {project.name}
+                      </h3>
+                      <p className="text-slate-600 mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
 
-                  <div className="mb-4">
-                    <h4 className="text-sm font-medium text-slate-700 mb-2">
-                      Tecnologias:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs"
+                      <div className="mb-4">
+                        <h4 className="text-sm font-medium text-slate-700 mb-2">
+                          Tecnologias:
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex space-x-3">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors"
                         >
-                          {tech}
-                        </span>
-                      ))}
+                          <Github size={16} />
+                          <span className="text-sm">Código</span>
+                        </a>
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+                        >
+                          <ExternalLink size={16} />
+                          <span className="text-sm">Demo</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors"
-                    >
-                      <Github size={16} />
-                      <span className="text-sm">Código</span>
-                    </a>
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
-                    >
-                      <ExternalLink size={16} />
-                      <span className="text-sm">Demo</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

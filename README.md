@@ -1,57 +1,53 @@
-# Site de Apresentação de Contabilidade
+# Portfolio - Software Developer
 
-Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.
+Bem-vindo ao meu portfólio! Aqui você encontra um resumo das minhas principais competências técnicas e áreas de atuação.
 
-## Descrição
+## Skills
 
-Este projeto apresenta os serviços de uma empresa de contabilidade, com layout moderno, responsivo e otimizado para buscadores. Inclui carrosséis de fotos e vídeos, formulário de contato integrado ao WhatsApp, depoimentos de clientes e informações detalhadas sobre planos e serviços.
+### Backend
+- NestJS
+- Node.js
+- TypeScript
+- Clean Architecture
+- SOLID Principles
 
-## Tecnologias Utilizadas
+### Database
+- PostgreSQL
+- TypeORM
+- Redis
+- MongoDB
 
-- **Next.js**
-- **Tailwind CSS**
-- **Mobile First**
-- **React Hooks**
-- **SEO Techniques**
-- **Performance Optimization**
-- **React DevTools**
-- **Vercel**
-- **TypeScript**
-- **HTML5**
-- **CSS3**
-- **Git & GitHub**
-- **CI/CD**
-- **Accessibility**
-- **Image Optimization**
-- **ESLint**
-- **Prettier**
+### Messaging
+- Kafka
+- RabbitMQ
+- MQTT
 
-## Como Executar
+### APIs
+- REST
+- GraphQL
+- OpenAI/GPT-4 Integration
 
-```bash
-npm run dev
-# ou
-yarn dev
-# ou
-pnpm dev
-# ou
-bun dev
-```
+### Authentication
+- JWT
+- OAuth 2.0
 
-Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar o resultado.
+### DevOps
+- Docker
+- Kubernetes
+- CI/CD
+- Prometheus
+- Grafana
 
-## Estrutura
+### Cloud
+- AWS
+- Azure
+- GCP
 
-- Página principal: `src/app/page.tsx`
-- Estilos: Tailwind CSS
-- Deploy: Vercel
+### Frontend
+- React
+- Hooks
+- Técnica de SEO
 
-## Aprenda Mais
+---
 
-- [Documentação Next.js](https://nextjs.org/docs)
-- [Tutorial Interativo Next.js](https://nextjs.org/learn)
-- [Deploy no Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-
-## Licença
-
-Este projeto está sob licença MIT.
+Sinta-se à vontade para entrar em contato para colaborações, projetos ou oportunidades!
