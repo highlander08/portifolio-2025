@@ -76,7 +76,8 @@ const Portfolio = () => {
         "CI/CD",
         "Vercel",
       ],
-      githubUrl: "https://github.com/highlander08/sistema-de-vendas-gestao-de-estoque",
+      githubUrl:
+        "https://github.com/highlander08/sistema-de-vendas-gestao-de-estoque",
       demoUrl: "https://sistema-de-vendas-gestao-de-estoque.vercel.app/login",
       gifUrl: "/pdv.gif", // Substitua pela URL do seu GIF
     },
@@ -363,14 +364,12 @@ const Portfolio = () => {
             {projects.map((project) => {
               return (
                 <a
+                  key={project.id}
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div
-                    key={project.id}
-                    className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
-                  >
+                  <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
                     <div className="aspect-video bg-slate-100 relative overflow-hidden">
                       <img
                         src={project.gifUrl}
