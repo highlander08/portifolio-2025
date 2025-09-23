@@ -226,6 +226,7 @@ const Portfolio = () => {
                   "Node.js",
                   "Microservices",
                   "Clean Architecture",
+                  "React"
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -262,7 +263,7 @@ const Portfolio = () => {
               Sobre Mim
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Desenvolvedor de sofgtware apaixonado por criar soluções robustas
+              Desenvolvedor de software apaixonado por criar soluções robustas
               e escaláveis. Especializado em arquiteturas de microserviços,
               desenvolvimento de APIs de alta performance e implementação de
               práticas DevOps modernas.
