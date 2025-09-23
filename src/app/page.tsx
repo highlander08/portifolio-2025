@@ -21,7 +21,7 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      name: "[Site]: Empresa de Contabilidade",
+      name: "Landing Page: Empresa de Contabilidade",
       description:
         "Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.",
       technologies: [
@@ -47,6 +47,38 @@ const Portfolio = () => {
       githubUrl: "https://github.com/highlander08/wn-contabilidade",
       demoUrl: "https://wn-contabilidade.vercel.app/",
       gifUrl: "/gifwn.gif", // Substitua pela URL do seu GIF
+    },
+    {
+      id: 2,
+      name: "[FullStack]: Controle360",
+      description:
+        "Controle seu estoque, faça vendas rápidas no PDV e receba alertas automáticos no WhatsApp quando produtos estão acabando ou perto de vencer. Acompanhe suas vendas em um dashboard intuitivo com métricas, planilhas de vendas e gráficos para tomar decisões estratégicas e aumentar faturamento.",
+      technologies: [
+        "ORM: PRISMA",
+        "TypeScript",
+        "Node.js",
+        "React",
+        "NEXTJS",
+        "PostgreSQL",
+        "supabase",
+        "Tailwind CSS",
+        "JWT",
+        "jose",
+        "CRON Jobs",
+        "recharts",
+        "xlsx",
+        "lucide-react",
+        "API REST",
+        "WhatsApp API",
+        "bcryptjs",
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Vercel",
+      ],
+      githubUrl: "https://github.com/highlander08/sistema-de-vendas-gestao-de-estoque",
+      demoUrl: "https://sistema-de-vendas-gestao-de-estoque.vercel.app/login",
+      gifUrl: "/pdv.gif", // Substitua pela URL do seu GIF
     },
   ];
 
