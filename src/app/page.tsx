@@ -23,7 +23,7 @@ const Portfolio = () => {
       id: 1,
       name: "BarberFlow - Sistema de Gestão para Barbearias",
       description:
-        "Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.",
+        "O BarberFlow é um sistema de gestão completo, moderno e intuitivo, projetado especificamente para as necessidades de barbearias e profissionais autônomos. Desenvolvido para rodar 100% no seu navegador, ele oferece todas as ferramentas essenciais para organizar seu negócio sem a necessidade de instalações complexas, servidores ou mensalidades.",
       technologies: [
         "Nextjs",
         "Tailwind CSS",
