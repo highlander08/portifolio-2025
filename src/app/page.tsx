@@ -46,7 +46,7 @@ const Portfolio = () => {
       ],
       githubUrl: "https://github.com/highlander08/barber-app",
       demoUrl: "https://barber-app-smoky.vercel.app/",
-      gifUrl: "/gifwn.gif", // Substitua pela URL do seu GIF
+      gifUrl: "/BarberFlow - Gestão para Barbearias - Brave 2025-11-29 11-30-51.gif", // Substitua pela URL do seu GIF
     },
     {
       id: 2,
