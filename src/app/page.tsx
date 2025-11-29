@@ -21,7 +21,7 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      name: "Landing Page: Empresa de Contabilidade",
+      name: "BarberFlow - Sistema de Gestão para Barbearias",
       description:
         "Desenvolvido em Next.js com foco em performance e SEO, utilizando as melhores práticas de frontend com HTML, CSS e React Hooks. Componentes otimizados e monitorados via React DevTools para garantir eficiência e experiência do usuário de alto nível.",
       technologies: [
@@ -44,8 +44,8 @@ const Portfolio = () => {
         "ESLint",
         "Prettier",
       ],
-      githubUrl: "https://github.com/highlander08/wn-contabilidade",
-      demoUrl: "https://wn-contabilidade.vercel.app/",
+      githubUrl: "https://github.com/highlander08/barber-app",
+      demoUrl: "https://barber-app-smoky.vercel.app/",
       gifUrl: "/gifwn.gif", // Substitua pela URL do seu GIF
     },
     {
