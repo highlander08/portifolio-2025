@@ -68,7 +68,7 @@ const Portfolio = () => {
       githubUrl:
         "https://github.com/highlander08/galeteria-system",
       demoUrl: "https://galeteria-system.vercel.app/dashboard",
-      gifUrl: "/pdv.gif", // Substitua pela URL do seu GIF
+      gifUrl: "/Sistema de Galeteria - Brave 2025-11-29 12-13-41.gif", // Substitua pela URL do seu GIF
     },
   ];
 
